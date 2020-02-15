@@ -6,6 +6,7 @@ namespace dotnet_paging.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
+    [Paged("custom", typeof(CustomService))]
     public class CustomController : ControllerBase
     {
         CustomService _customService;

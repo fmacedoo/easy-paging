@@ -8,8 +8,9 @@ namespace dotnet_paging.Services
     using GitHubSharp.Models;
     using Microsoft.Extensions.Configuration;
     using Newtonsoft.Json.Linq;
+    using dotnet_paging.Controllers;
 
-    public class CustomService
+    public class CustomService : IPagedResults
     {
         static readonly List<NomeTuga> _nomes;
 
@@ -28,6 +29,20 @@ namespace dotnet_paging.Services
             return new NomesSearchResult
             {
                 Items = result,
+                TotalResults = result.Count(),
+            };
+        }
+
+        public object SearchPaged(int page, int? pageSize = 6)
+        {
+            var result = _nomes
+                .Where(o => o.Nome.Contains("fil", StringComparison.InvariantCultureIgnoreCase));
+
+            return new NomesSearchResult
+            {
+                Items = result
+                    .Skip((page - 1) * pageSize.Value)
+                    .Take(pageSize.Value),
                 TotalResults = result.Count(),
             };
         }
