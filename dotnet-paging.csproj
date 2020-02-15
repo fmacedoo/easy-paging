@@ -1,9 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>dotnet_paging</RootNamespace>
+    <UserSecretsId>b22a0b19-ff43-410a-bf99-cb0ece5f269a</UserSecretsId>
   </PropertyGroup>
-
-
+  <ItemGroup>
+    <PackageReference Include="GitHubClient" Version="1.0.15" />
+  </ItemGroup>
 </Project>
