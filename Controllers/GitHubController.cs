@@ -6,6 +6,7 @@ namespace dotnet_paging.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
+    [Paged("github", typeof(GitHubService))]
     public class GitHubController : ControllerBase
     {
         GitHubService _gitHubService;

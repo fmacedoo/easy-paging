@@ -49,7 +49,7 @@ namespace dotnet_paging.Controllers
             var (key, page, pageSize) = (
                 Request.RouteValues["key"].ToString(), 
                 Request.RouteValues["page"].ToString(), 
-                Request.RouteValues["pageSize"].ToString()
+                Request.RouteValues["pageSize"]?.ToString()
             );
 
             if (!_services.Keys.Contains(key)) return BadRequest("No provider found!");
